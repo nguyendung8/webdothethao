@@ -78,16 +78,6 @@
    
 <?php include 'header.php'; ?>
 
-<section class="home">
-
-   <div class="content">
-      <h3>Mỗi ngày một quyển truyện.</h3>
-      <p>Những quyển truyện đều mang trong mình những bài học ý nghĩa, những trải nghiệm đáng giá.</p>
-      <a href="about.php" class="white-btn">Khám phá thêm</a>
-   </div>
-
-</section>
-
 <section class="products">
 
    <h1 class="title">Sản phẩm mới nhất</h1>
@@ -95,21 +85,20 @@
    <div class="box-container">
 
       <?php  
-         $select_products = mysqli_query($conn, "SELECT * FROM `products` ORDER BY id DESC  LIMIT 6") or die('query failed');
+         $select_products = mysqli_query($conn, "SELECT * FROM `products` ORDER BY id DESC  LIMIT 8") or die('query failed');
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-               <form action="" method="post" class="box">
-                  <img width="207px" height="224px" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+               <form style="height: -webkit-fill-available;" action="" method="post" class="box">
+                  <img width="207px" height="191px" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
                   <?php
                      $cate_id =  $fetch_products['cate_id'];
                      $result= mysqli_query($conn, "SELECT * FROM `categorys` WHERE id = $cate_id") or die('Query failed');
                      $cate_name = mysqli_fetch_assoc($result)
                    ?>
-                  <div class="name"><?php echo $fetch_products['name']; ?> (<?php echo $cate_name['name']; ?>)</div>
+                  <div class="name"><?php echo $fetch_products['name']; ?></div>
                   <p>Thương hiệu: <?php echo $fetch_products['trademark']; ?></p>
-                  <p>Mô tả: <?php echo $fetch_products['describes']; ?></p>
-                  <div class="price"><?php echo number_format($fetch_products['newprice'],0,',','.' ); ?>/<span style="text-decoration-line:line-through"><?php echo number_format($fetch_products['price'],0,',','.' ); ?></span> VND (<?php echo $fetch_products['discount']; ?>% SL: <?php echo $fetch_products['quantity']; ?>)</div>
+                  <div class="price"><span style="text-decoration-line:line-through; text-decoration-thickness: 2px; text-decoration-color: grey"><?php echo number_format($fetch_products['price'],0,',','.' ); ?></span> VND /<?php echo number_format($fetch_products['newprice'],0,',','.' ); ?>(-<?php echo $fetch_products['discount']; ?>%)</div>
                   <span style="font-size: 17px; display: flex;">Số lượng mua:</span>
                   <input type="number" min="<?=($fetch_products['quantity']>0) ? 1:0 ?>" max="<?php echo $fetch_products['quantity']; ?>" name="product_quantity" value="<?=($fetch_products['quantity']>0) ? 1:0 ?>" class="qty">
                   <input type="hidden" name="product_name" value="<?php echo $fetch_products['name']; ?>">
@@ -137,12 +126,12 @@
    <div class="flex">
 
       <div class="image">
-         <img src="images/about-img.jpg" alt="">
+         <img style="height: 348px; border-radius: 4px;" src="images/home-img.jpg" alt="">
       </div>
 
       <div class="content">
-         <h3>Comic</h3>
-         <p>Từ hội những bạn trẻ yêu thích đọc truyện, chúng mình muốn cùng chia sẻ những đam mê và sở thích tới mọi người.</p>
+         <h3>Sport</h3>
+         <p>Thể dục thể thao là một phần không thể thiếu trong cuộc sống con người. Không chỉ giúp chúng ta rèn luyện sức khỏe mà còn giải tỏa được sự căng thẳng, mệt mỏi sau ngày dài làm việc.</p>
       </div>
 
    </div>

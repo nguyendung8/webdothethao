@@ -71,11 +71,6 @@
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>Thanh toán</h3>
-   <p> <a href="home.php">Trang chủ</a> / Thanh toán </p>
-</div>
-
 <section class="display-order">
 
    <?php  
@@ -118,8 +113,6 @@
             <span>Phương thức thanh toán :</span>
             <select name="method">
                <option value="Tiền mặt khi nhận hàng">Tiền mặt khi nhận hàng</option>
-               <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
-               <option value="Paypal">Paypal</option>
             </select>
          </div>
          <div class="inputBox">

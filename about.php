@@ -26,23 +26,18 @@
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>Về Comic</h3>
-   <p> <a href="home.php">Trang chủ</a> / Thông tin </p>
-</div>
-
 <section class="about">
 
    <div class="flex">
 
       <div class="image">
-         <img src="images/about-img.jpg" alt="">
+         <img style="border-radius: 4px;" src="images/about_img.jpg" alt="">
       </div>
 
       <div class="content">
-         <h3>Tại sao lại có Comic.</h3>
-         <p>Từ những bạn trẻ đam mê đọc những quyển truyện trinh thám và tiểu thuyết, chúng mình đã xây dựng nên website này để giúp mọi người có thể dễ dàng tìm kiếm và mua được những quyển truyện yêu thích của mình.</p>
-         <p>Qua một thời gian phát triển, Comic mong muốn mang đến những quyển truyện hay, sâu sắc và hấp dẫn đến tay các bạn đọc.</p>
+         <h3>Tại sao lại có Sport.</h3>
+         <p>Từ những bạn trẻ đam mê chơi thể thao, chúng mình đã xây dựng nên website này để giúp mọi người có thể dễ dàng tìm kiếm và mua được những sản phẩm thể thao yêu thích của mình.</p>
+         <p>Qua một thời gian phát triển, Sport mong muốn mang đến những sản phẩm thật ưng ý cho người dùng.</p>
          <a href="contact.php" class="btn">Liên hệ</a>
       </div>
 
@@ -53,17 +48,17 @@
 
 <section class="authors">
 
-   <h1 class="title">Thành viên của Comic</h1>
+   <h1 class="title">Thành viên của Sport</h1>
 
    <div class="box-container">
 
       <div class="box">
-         <img src="images/author-2.jpg" alt="">
+         <img src="images/anhcanhan.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-instagram"></a>
          </div>
-         <h3>Mina</h3>
+         <h3>Trần Văn Trà</h3>
       </div>
    </div>
 

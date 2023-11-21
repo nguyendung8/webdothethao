@@ -46,11 +46,6 @@
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>Liên hệ</h3>
-   <p> <a href="home.php">Trang chủ</a> / Liên hệ </p>
-</div>
-
 <section class="contact">
 
    <form action="" method="post">

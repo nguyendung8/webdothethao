@@ -159,8 +159,8 @@
          if(mysqli_num_rows($select_products) > 0){
             while($fetch_products = mysqli_fetch_assoc($select_products)){
       ?>
-               <div class="box">
-                  <img style="border-radius: 4px;" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+               <div style="height: -webkit-fill-available;" class="box">
+                  <img style="height: 23rem !important" style="border-radius: 4px;" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
                   <div class="name"><?php echo $fetch_products['name']; ?></div>
                   <div class="sub-name">Thương hiệu: <?php echo $fetch_products['trademark']; ?></div>
                   <?php

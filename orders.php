@@ -28,11 +28,6 @@
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>Đơn hàng của bạn</h3>
-   <p> <a href="home.php">Trang chủ</a> / Đơn hàng </p>
-</div>
-
 <section class="placed-orders">
 
    <h1 class="title">Đặt hàng</h1>

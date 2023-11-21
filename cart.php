@@ -46,11 +46,6 @@
    
 <?php include 'header.php'; ?>
 
-<div class="heading">
-   <h3>Giỏ hàng</h3>
-   <p> <a href="home.php">Trang chủ</a> / Giỏ hàng </p>
-</div>
-
 <section class="shopping-cart">
 
    <h1 class="title">Sản đã được thêm</h1>
