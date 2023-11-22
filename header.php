@@ -25,7 +25,7 @@
 
    <div class="header-2">
       <div style="padding:1rem;" class="flex">
-         <a href="home.php" class="logo"><img width="100px" height="77px" src="./images/logo_main.png"></a>
+         <a href="home.php" class="logo"><img width="100px" height="82px" src="./images/logo_main.png"></a>
 
          <nav class="navbar">
             <a href="home.php">Trang chủ</a>

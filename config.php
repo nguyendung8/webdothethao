@@ -1,5 +1,5 @@
 <?php
 
-    $conn = mysqli_connect('localhost','root','','webbandothethao') or die('connection failed');
+    $conn = mysqli_connect('localhost','root','','webthethao') or die('connection failed');
 
 ?>
