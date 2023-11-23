@@ -53,12 +53,20 @@
    <div class="box-container">
 
       <div class="box">
-         <img src="images/anhcanhan.jpg" alt="">
+         <img src="images/nthn.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-instagram"></a>
          </div>
-         <h3>Trần Văn Trà</h3>
+         <h3>Nguyễn Thị Huỳnh Như</h3>
+      </div>
+      <div style="height: -webkit-fill-available;" class="box">
+         <img src="images/hxh.jpg" alt="">
+         <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-instagram"></a>
+         </div>
+         <h3>Hà Xuân Hà</h3>
       </div>
    </div>
 

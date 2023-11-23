@@ -144,7 +144,7 @@
             while($fetch_products = mysqli_fetch_assoc($select_products)){
                   ?>
                      <form style="height: -webkit-fill-available;" action="" method="post" class="box">
-                        <img width="207px" height="224px" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
+                        <img width="207px" height="191px" src="uploaded_img/<?php echo $fetch_products['image']; ?>" alt="">
                         <div class="name"><?php echo $fetch_products['name']; ?></div>
                         <div class="sub-name">Thương hiệu: <?php echo $fetch_products['trademark']; ?></div>
                         <div class="price"><span style="text-decoration-line:line-through; text-decoration-thickness: 2px; text-decoration-color: grey"><?php echo number_format($fetch_products['price'],0,',','.' ); ?></span> VND /<?php echo number_format($fetch_products['newprice'],0,',','.' ); ?>(-<?php echo $fetch_products['discount']; ?>%)</div>
