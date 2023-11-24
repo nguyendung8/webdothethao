@@ -121,7 +121,7 @@
 
    <div class="content">
       <h3>Bạn có thắc mắc?</h3>
-      <p>Hãy để lại những điều bạn còn thắc mắc, băn khoăn hay muốn chia sẻ thêm về những quyển truyện cho chúng mình tại đây để chúng mình có thể giải đáp giúp bạn</p>
+      <p>Hãy để lại những điều bạn còn thắc mắc, băn khoăn hay muốn chia sẻ thêm về những sản phẩm cho chúng mình tại đây để chúng mình có thể giải đáp giúp bạn</p>
       <a href="contact.php" class="white-btn">Liên hệ</a>
    </div>
 
