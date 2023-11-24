@@ -11,12 +11,10 @@
    };
 
    if(isset($_POST['update_order'])){//cập nhật trạng thái đơn hàng từ submit='update_order'
-
       $order_update_id = $_POST['order_id'];
       $update_payment = $_POST['update_payment'];
       mysqli_query($conn, "UPDATE `orders` SET payment_status = '$update_payment' WHERE id = '$order_update_id'") or die('query failed');
       $message[] = 'Trạng thái đơn hàng đã được cập nhật!';
-
    }
 
    if(isset($_GET['return'])){//khôi phục đơn hàng
@@ -24,9 +22,9 @@
       $return_status = "Chờ xác nhận";
 
       $total_products= $_GET['products'];
-      $products = explode(', ', $total_products);//tách riêng từng sách
+      $products = explode(', ', $total_products);
       for($i=0; $i<count($products); $i++){
-         $quantity = explode('-', $products[$i]);//tách sách với số lượng tương ứng cần hủy
+         $quantity = explode('-', $products[$i]);
          $nums = mysqli_query($conn, "SELECT * FROM `products` WHERE name = '$quantity[0]'");
          $res = mysqli_fetch_assoc($nums);
          $return_quantity = $res['quantity'] - $quantity[1];
@@ -41,9 +39,9 @@
       $status = $_GET['status'];
       $total_products= $_GET['products'];
       if($status=="Chờ xác nhận"){
-         $products = explode(', ', $total_products);//tách riêng từng sách
+         $products = explode(', ', $total_products);
          for($i=0; $i<count($products); $i++){
-            $quantity = explode('-', $products[$i]);//tách sách với số lượng tương ứng cần hủy
+            $quantity = explode('-', $products[$i]);
             $nums = mysqli_query($conn, "SELECT * FROM `products` WHERE name = '$quantity[0]'");
             $res = mysqli_fetch_assoc($nums);
             $return_quantity = $quantity[1]+$res['quantity'];
@@ -99,42 +97,42 @@
          if(mysqli_num_rows($select_orders) > 0){
             while($fetch_orders = mysqli_fetch_assoc($select_orders)){
       ?>
-               <div class="box">
-                  <p> Id người dùng : <span><?php echo $fetch_orders['user_id']; ?></span> </p>
-                  <p> Ngày đặt : <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
-                  <p> Tên : <span><?php echo $fetch_orders['name']; ?></span> </p>
-                  <p> Số điện thoại : <span><?php echo $fetch_orders['number']; ?></span> </p>
-                  <p> Email : <span><?php echo $fetch_orders['email']; ?></span> </p>
-                  <p> Địa chỉ : <span><?php echo $fetch_orders['address']; ?></span> </p>
-                  <p> Ghi chú : <span><?php echo $fetch_orders['note']; ?></span> </p>
-                  <p> Tổng sản phẩm : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
-                  <p> Tổng giá : <span><?php echo number_format($fetch_orders['total_price'],0,',','.' ); ?> VND</span> </p>
-                  <p> Phương thức thanh toán : <span><?php echo $fetch_orders['method']; ?></span> </p>
-                  <form action="" method="post">
-                     <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
+         <div style="height: -webkit-fill-available;" class="box">
+            <p> Id người dùng : <span><?php echo $fetch_orders['user_id']; ?></span> </p>
+            <p> Tên : <span><?php echo $fetch_orders['name']; ?></span> </p>
+            <p> Số điện thoại : <span><?php echo $fetch_orders['number']; ?></span> </p>
+            <p> Email : <span><?php echo $fetch_orders['email']; ?></span> </p>
+            <p> Địa chỉ : <span><?php echo $fetch_orders['address']; ?></span> </p>
+            <p> Ghi chú : <span><?php echo $fetch_orders['note']; ?></span> </p>
+            <p> Ngày đặt hàng: <span><?php echo $fetch_orders['placed_on']; ?></span> </p>
+            <p> Sản phẩm : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
+            <p> Số lượng : <span><?php echo $fetch_orders['product_quantity']; ?></span> </p>
+            <p> Tổng tiền : <span><?php echo number_format($fetch_orders['total_price'],0,',','.' ); ?> VND</span> </p>
+            <p> Phương thức thanh toán : <span><?php echo $fetch_orders['method']; ?></span> </p>
+            <form action="" method="post">
+               <input type="hidden" name="order_id" value="<?php echo $fetch_orders['id']; ?>">
       <?php
-                     if($fetch_orders['payment_status']=="Đã hủy"){
-                        echo "<p class='empty' style='color:red'>Đã hủy đơn hàng này.</p>";
+            if($fetch_orders['payment_status']=="Đã hủy"){
+               echo "<p class='empty' style='color:red'>Đã hủy đơn hàng này.</p>";
       ?>
-                        <a href="admin_orders.php?return=<?=$fetch_orders['id']?>& products=<?=$fetch_orders['total_products']?>" onclick="return confirm('Khôi phục đơn hàng này?');" class="option-btn">Khôi phục</a>
+            <a href="admin_orders.php?return=<?=$fetch_orders['id']?>& products=<?=$fetch_orders['total_products']?>" onclick="return confirm('Khôi phục đơn hàng này?');" class="option-btn">Khôi phục</a>
       <?php
-                     }else{
+            }else{
          ?>
-                        <select name="update_payment" required>
-                           <option value="" selected disabled><?php echo $fetch_orders['payment_status']; ?></option>
-                           <!-- <option value="Chờ xác nhận">Chờ xác nhận</option> -->
-                           <option value="Đã xác nhận">Đã xác nhận</option>
-                           <option value="Đang xử lý">Đang xử lý</option>
-                           <option value="Hoàn thành">Hoàn thành</option>
-                        </select>
-                        <input type="submit" value="Cập nhật" name="update_order" class="option-btn">
+            <select name="update_payment" required>
+               <option value="" selected disabled><?php echo $fetch_orders['payment_status']; ?></option>
+               <option value="Đã xác nhận">Đã xác nhận</option>
+               <option value="Đang xử lý">Đang xử lý</option>
+               <option value="Hoàn thành">Hoàn thành</option>
+            </select>
+            <input type="submit" value="Cập nhật" name="update_order" class="option-btn">
       <?php
-                     }
+            }
       ?>
-                     <a href="admin_orders.php?cancel=<?=$fetch_orders['id']?>& status=<?=$fetch_orders['payment_status']?>& products=<?=$fetch_orders['total_products']?>" onclick="return confirm('Hủy đơn hàng này?');" class="delete-btn">Hủy</a>
-                     <a href="admin_orders.php?delete=<?=$fetch_orders['id']?>& status=<?=$fetch_orders['payment_status']?>" onclick="return confirm('Xóa đơn hàng này?');" class="delete-btn">Xóa</a>
-                  </form>
-               </div>
+               <a href="admin_orders.php?cancel=<?=$fetch_orders['id']?>& status=<?=$fetch_orders['payment_status']?>& products=<?=$fetch_orders['total_products']?>" onclick="return confirm('Hủy đơn hàng này?');" class="delete-btn">Hủy</a>
+               <a href="admin_orders.php?delete=<?=$fetch_orders['id']?>& status=<?=$fetch_orders['payment_status']?>" onclick="return confirm('Xóa đơn hàng này?');" class="delete-btn">Xóa</a>
+            </form>
+         </div>
       <?php
             }
          }else{

@@ -50,15 +50,6 @@
             <div id="menu-btn" class="fas fa-bars"></div>
             <a href="search_page.php" class="fas fa-search"></a>
             <div id="user-btn" class="fas fa-user"></div>
-            <?php
-               $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-               $cart_rows_number = mysqli_num_rows($select_cart);
-               $total= 0;
-               while($fetch_total=mysqli_fetch_assoc($select_cart)){
-                  $total+=$fetch_total['quantity'] * $fetch_total['price'];
-               }
-            ?>
-            <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> <span>(<?php echo number_format($total,0,',','.' ); ?> VND)</span> </a>
          </div>
 
          <div style="z-index: 1000;" class="user-box">

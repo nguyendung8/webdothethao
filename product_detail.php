@@ -15,35 +15,6 @@
    $result = $conn->query($sql);
    $productItem = $result->fetch_assoc();
 
-   if(isset($_POST['add_to_cart'])){//thêm sách vào giỏi hàng từ form submit name='add_to_cart'
-
-    $product_name = $_POST['product_name'];
-    $product_price = $_POST['product_price'];
-    $product_image = $_POST['product_image'];
-    $product_quantity = 1;
-
-    if($product_quantity==0){
-       $message[] = 'Sản phẩm đã hết hàng!';
-    }
-    else{
-       $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' AND user_id = '$user_id'") or die('query failed');
-
-       if(mysqli_num_rows($check_cart_numbers) > 0){//kiểm tra sách có trong giỏ hàng chưa và tăng số lượng
-          $result=mysqli_fetch_assoc($check_cart_numbers);
-          $num=$result['quantity']+$product_quantity;
-          $select_quantity = mysqli_query($conn, "SELECT * FROM `products` WHERE name='$product_name'");
-          $fetch_quantity = mysqli_fetch_assoc($select_quantity);
-          if($num>$fetch_quantity['quantity']){
-             $num=$fetch_quantity['quantity'];
-          }
-          mysqli_query($conn, "UPDATE `cart` SET quantity='$num' WHERE name = '$product_name' AND user_id = '$user_id'");
-          $message[] = 'Sản phẩm đã có trong giỏ hàng và được thêm số lượng!';
-       }else{
-          mysqli_query($conn, "INSERT INTO `cart`(user_id, name, price, quantity, image) VALUES('$user_id', '$product_name', '$product_price', '$product_quantity', '$product_image')") or die('query failed');
-          $message[] = 'Sản phẩm đã được thêm vào giỏ hàng!';
-       }
-    }
- }
 ?>
 
 <!DOCTYPE html>
@@ -93,6 +64,20 @@
         margin: auto;
         margin-top: 17px;
       }
+      .create_order {
+         width: fit-content;
+         display: flex;
+         margin: auto;
+         margin-top: 17px;
+         padding: 5px 34px;
+         background-color: purple;
+         font-size: 16px;
+         color: #fff;
+         border-radius: 4px;
+      }
+      .create_order:hover {
+         opacity: 0.8;
+      }
    </style>
 </head>
 <body>
@@ -106,8 +91,7 @@
 
 <section class="view-product">
    <?php if ($productItem) : ?>
-         <!-- Modal View Detail Book -->
-        <form method="post" class="modal">
+        <div  class="modal">
             <div class="modal-container">
                 <h3 class="peoductdetail-title">Xem sản phẩm <?php echo($productItem['name']) ?></h3>
                 <div>
@@ -126,11 +110,8 @@
                     <?php echo($productItem['describes'])  ?>
                 </p>
             </div>
-            <input type="hidden" name="product_name" value="<?php echo $productItem['name']; ?>">
-            <input type="hidden" name="product_price" value="<?php echo $productItem['newprice']; ?>">
-            <input type="hidden" name="product_image" value="<?php echo $productItem['image']; ?>">
-            <input type="submit" value="Thêm vào giỏ hàng" name="add_to_cart" class="btn add_btn">
-        </form>
+            <a href="create_order.php?product_id=<?php echo $productItem['id'] ?>" class="create_order" >Đặt hàng</a>
+        </div>
    <?php else : ?>
       <p style="font-size: 20px; text-align: center;">Không xem được chi tiết sản phẩm này</p>
    <?php endif; ?>

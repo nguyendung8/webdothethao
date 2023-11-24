@@ -89,18 +89,6 @@
 
    }
 
-   //refersh giá sản phẩm liên tục
-   $nums_cart = mysqli_query($conn, "SELECT * FROM `cart`");
-   if(mysqli_num_rows($nums_cart)>0){
-      while($res_nums = mysqli_fetch_assoc($nums_cart)){
-         $refersh_name = $res_nums['name'];
-         $refersh_price = mysqli_query($conn,"SELECT * FROM `products` WHERE name = '$refersh_name'");
-         $res_price = mysqli_fetch_assoc($refersh_price);
-         $price_new = $res_price['newprice'];
-         mysqli_query($conn, "UPDATE `cart` SET price = '$price_new' WHERE name = '$refersh_name' ");
-      }
-   }
-
 ?>
 
 <!DOCTYPE html>
@@ -198,6 +186,7 @@
                   <input type="hidden" name="update_p_id" value="<?php echo $fetch_update['id']; ?>">
                   <input type="hidden" name="update_old_image" value="<?php echo $fetch_update['image']; ?>">
                   <input type="hidden" name="update_trademark" value="<?php echo $fetch_update['trademark']; ?>">
+                  <input type="hidden" name="update_discount" value="<?php echo $fetch_update['discount']; ?>">
                   <img src="uploaded_img/<?php echo $fetch_update['image']; ?>" alt="">
                   <input type="text" name="update_name" value="<?php echo $fetch_update['name']; ?>" class="box" required placeholder="Tên sản phẩm">
                   <select name="update_category" class="box">

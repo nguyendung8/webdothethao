@@ -47,8 +47,9 @@
          <p> Địa chỉ : <span><?php echo $fetch_orders['address']; ?></span> </p>
          <p> Ghi chú : <span><?php echo $fetch_orders['note']; ?></span> </p>
          <p> Phương thức thanh toán : <span><?php echo $fetch_orders['method']; ?></span> </p>
-         <p> Đơn hàng : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
-         <p> Tổng giá : <span><?php echo number_format($fetch_orders['total_price'],0,',','.' ); ?> VND</span> </p>
+         <p> Sản phẩm : <span><?php echo $fetch_orders['total_products']; ?></span> </p>
+         <p> Số lượng : <span><?php echo $fetch_orders['product_quantity']; ?></span> </p>
+         <p> Tổng tiền : <span><?php echo number_format($fetch_orders['total_price'],0,',','.' ); ?> VND</span> </p>
          <p> Trạng thái  : <span style="color:<?php if($fetch_orders['payment_status'] == 'Hoàn thành'){ echo 'green'; }else if($fetch_orders['payment_status'] == 'Chờ xác nhận'){ echo 'red'; }else{ echo 'orange'; } ?>;"><?php echo $fetch_orders['payment_status']; ?></span> </p>
          </div>
       <?php
