@@ -22,7 +22,7 @@
       $name = mysqli_real_escape_string($conn, $_POST['name']);
       $number = $_POST['number'];
       $email = mysqli_real_escape_string($conn, $_POST['email']);
-      $method = "Tiền mặt khi nhận hàng";
+      $method = mysqli_real_escape_string($conn, $_POST['method']);
       $address = mysqli_real_escape_string($conn,$_POST['street']);
       $note = mysqli_real_escape_string($conn, $_POST['note']);
       $total_products = $productItem['name'];
@@ -129,6 +129,14 @@
          <div class="inputBox">
             <span>Số lượng :</span>
             <input type="number" name="quantity" min="<?=($productItem['quantity'] > 0) ? 1:0 ?>" max="<?php echo $productItem['quantity']; ?>" value="<?=($productItem['quantity']>0) ? 1:0 ?>" required placeholder="Nhập số lượng">
+         </div>
+         <div class="inputBox">
+            <span>Phương thức thanh toán :</span>
+            <select name="method">
+               <option value="Tiền mặt khi nhận hàng">Tiền mặt khi nhận hàng</option>
+               <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
+               <option value="Paypal">Paypal</option>
+            </select>
          </div>
          <div class="inputBox">
             <span>Địa chỉ :</span>

@@ -39,7 +39,19 @@
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    <link rel="stylesheet" href="css/style.css">
-
+   <style>
+      form h3 {
+         color: #57b846 !important;
+      }
+      form {
+         border: none !important;
+      }
+      .btn 
+      {
+         background: #57b846 !important;
+         border-radius: 25px;
+      }
+   </style>
 </head>
 <body>
 
@@ -57,7 +69,7 @@ if(isset($message)){
 }
 ?>
    
-<div class="form-container">
+<div style="background: linear-gradient(-135deg,#c850c0,#4158d0);" class="form-container">
 
    <form action="" method="post">
       <h3>Đăng ký</h3>
@@ -69,8 +81,8 @@ if(isset($message)){
          <option value="user">user</option>
          <option value="admin">admin</option>
       </select> -->
-      <input type="submit" name="submit" value="Đăng ký ngay" class="btn">
-      <p>Bạn đã có tài khoản? <a href="login.php">Đăng nhập</a></p>
+      <input type="submit" name="submit" value="Đăng ký" class="btn">
+      <p>Bạn đã có tài khoản? <a style="text-decoration: none; color: #57b846;" href="login.php">Đăng nhập</a></p>
    </form>
 
 </div>

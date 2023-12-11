@@ -51,10 +51,27 @@
    <style>
       .forget-btn {
          font-size: 20px;
-         color: #9C27B0;
+         color: #e5e5e5;
+         margin-top: 5px;
       }
       .forget-btn:hover {
          opacity: 0.8;
+      }
+      .login-form {
+         background: -webkit-linear-gradient(top,#7579ff,#b224ef);
+         border: none !important;
+         padding: 4rem !important;
+      }
+      .login-form h3 {
+         color: #fff !important;
+      }
+      .login_btn {
+         background: #fff;
+         color: #555;
+         border-radius: 25px;
+         padding: 6px 10px;
+         font-size: 20px;
+         margin-top: 8px;
       }
    </style>
 </head>
@@ -72,16 +89,16 @@ if(isset($message)){
 }
 ?>
    
-<div class="form-container">
+<div style="background-color: #aca9d0 !important;" class="form-container">
 
-   <form action="" method="post">
+   <form class="login-form" action="" method="post">
       <h3>Đăng nhập</h3>
       <input type="email" name="email" placeholder="Email" required class="box">
       <input type="password" name="password" placeholder="Mật khẩu" required class="box">
-      <input style="margin-bottom: 7px;" type="submit" name="submit" value="Đăng nhập" class="btn">
+      <input style="margin-bottom: 7px;" type="submit" name="submit" value="Đăng nhập" class="login_btn">
       <br>
       <a class="forget-btn" href="forget_password.php">Quên mật khẩu ?</a>
-      <p>Bạn chưa có tài khoản? <a href="register.php">Đăng ký</a></p>
+      <p>Bạn chưa có tài khoản? <a style="color: #e5e5e5; text-decoration: none;" href="register.php">Đăng ký</a></p>
    </form>
 
 </div>

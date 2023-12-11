@@ -23,7 +23,7 @@
                 if ($conn->query($updatePasswordQuery) === TRUE) {
                     $message[] = 'Cập nhật mật khẩu thành công';
                 } else {
-                    $message[] = 'Cập nhậ mật khẩu không thành công';
+                    $message[] = 'Cập nhật mật khẩu không thành công';
                 }
             } else {
                 $message[] = 'Email không tồn tại trên hệ thống, vui lòng nhập lại';
